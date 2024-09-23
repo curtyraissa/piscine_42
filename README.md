@@ -1,15 +1,15 @@
 # Piscine 42
 
-## Description 🌊
+## 🌊 Description
 
 The **Piscine 42** is an intensive 4-week programming marathon held at 42 School, where participants solve challenges and practical projects to develop programming and collaboration skills.
 
-## Project Structure 📁
+## 📁 Project Structure
 
 This repository contains the following directories and projects:
 
 - **C00** to **C13**: Contains exercises related to the C curriculum.
-- **Shell00** to **Shell01**: Contains exercises and documents related to the shell.
+- **Shell00** to **Shell01**: Contains exercises related to shell.
 - **Rush 00**: Contains files related to Rush challenges.
 
 ## 💬 &nbsp;Contacts
