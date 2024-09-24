@@ -1,0 +1,59 @@
+
+ex01
+#!/bin/sh
+id -nG $FT_USER | tr -s ' ' ',' 
+// -n mostre os nomes dos grupos em vez dos IDs
+// -G listar todos os grupos em que o usuario pertence
+  $FT_USER O shell substitui $FT_USER pelo valor armazenado nessa variável
+// | operador pipe redireciona a saída do comando anterior como entrada para o próximo comando
+// tr substituir caracteres e -s é para substituir multiplas por 1 ocorrencia
+
+
+ex02
+#!/bin/sh
+find -type f -name "*sh" -exec basename{} .sh\;
+find pesquisa a partir do diretorio atual
+-type f restringe a busca a apenas arquivos
+-exec é uma opção do comando find que permite executar um comando em cada arquivo encontrado que corresponda aos critérios de busca
+basename remover a extensão .sh
+\; indica ao find que o exec terminou
+
+ex03
+#!/bin/sh
+find . | wc -l
+find . O comando find lista todos os arquivos e diretórios começando a partir do diretório atual (.) e incluindo todas as subpastas.
+wc -l: O comando wc conta o número de linhas. Neste contexto, ele conta o número de entradas retornadas pelo comando find, que corresponde ao número total de arquivos e diretórios.
+
+ex04
+#!/bin/sh
+ifconfig | grep ether | cut -d ' ' -f10
+ifconfig: Exibe as configurações das interfaces de rede na sua máquina, incluindo os endereços MAC.
+
+grep ether: Filtra a saída do ifconfig para mostrar apenas as linhas que contêm a palavra ether, que é onde o ifconfig geralmente exibe o endereço MAC.
+
+    cut: Comando usado para dividir a saída em partes.
+    -d ' ': Define o delimitador como um espaço (' '), dividindo a linha em campos.
+    -f10: Seleciona o décimo campo, que é onde o endereço MAC está localizado na linha resultante.
+    
+
+ex05
+antes de " \ $ precisa de uma \ para entender como literal
+echo "42" > "...." 
+
+ex06
+ls -l | awk 'NR%2==1'
+ls -l -> lists os arquivos em formato detalhado
+mostra apenas as linhas impares
+
+ex07
+cat /etc/passwd: Lê o arquivo /etc/passwd.
+sed '/^#/d': Remove as linhas que começam com # (comentários).
+sed -n 'n;p': Imprime uma linha a cada duas, começando da segunda.
+cut -d ':' -f1: Extrai o login (o primeiro campo de cada linha).
+rev: Inverte o login.
+sort -r: Ordena os logins em ordem alfabética inversa.
+sed -n "$FT_LINE1,$FT_LINE2 p": Seleciona as linhas entre FT_LINE1 e FT_LINE2.
+tr '\n' ',': Substitui quebras de linha por vírgulas.
+sed 's/,/, /g': Adiciona um espaço após cada vírgula.
+sed 's/, $/./': Remove a última vírgula e espaço e coloca um ponto final.
+tr -d '\n': Remove as quebras de linha da saída final.

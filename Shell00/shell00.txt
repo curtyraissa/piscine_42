@@ -1,0 +1,69 @@
+ex01
+touch testShell00
+truncate 40 testShell00 // o arquivo é truncado em 40 bytes 
+touch -t MMDDHHMM // especifica o timestamp no formato mês-dia-hora-minuto.
+chmod 455 testShell00 
+
+
+ex02
+ln -s test0 test6 // link simbolico test6 apontando para o test0
+touch -ht MMDDHHMM // alterar o timestamp do link simbolico (usar o h para modificar o TS do proprio link e nao do arquivo que ele aponta)
+ln test5 test2 // criar um hard link test2 apontando para o mesmo conteudo de test5
+chmod ...
+
+
+ex03
+ssh-keygen
+cd ~/.ssh
+
+
+ex04
+#!/bin/sh // shebang, garante que o script será executado com o interpretador shell padrão, independentemente de onde ou como ele seja executado
+
+ls -mpt 
+// -m separar por virgulas 
+// -p adicionar uma / ao final do nome do diretorio
+// -t ordenar por data de modificação.
+
+ex05
+git log -n5 --format="%H"
+// git log -> exibe historico de commits
+// -n5 -> limita aos 5 ultimos
+// --format="%H" -> mostrar apenas o hash
+
+
+ex06
+git ls-files --others --ignored --exclude-standard
+// git ls-files -> arquivos rastreados pelo git
+// --others -> arquivos nao rastreados pelo git(nao foram add no git add)
+// --ignored -> arquivos ignorados
+// --exclude-standard -> usar todas as regras padrao de exclusao do git
+
+testar
+touch .gitignore file1.log file2.tmp
+
+ex07
+cp a b -> criar o b igual o a
+patch b > sw.diff
+
+ex08
+find . \( -name "*~" -o -name "#*#" \) -type f -print -delete
+encontra tudo que tem no dir atual
+que tenha nome ~ e #
+pega so files
+mostra
+deleta
+
+testar
+touch file1~ file2~ #temp# #backup#
+
+
+ex09
+41 string 42 42 file
+a partir de qual byte
+que tipo de dado
+valor que quero encontrar
+42 file (mensagem a ser exibida)
+
+testar
+file -m ft_magic test_file
