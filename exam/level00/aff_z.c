@@ -19,3 +19,10 @@ $> ./aff_z "zaz sent le poney" | cat -e
 z$
 $> ./aff_z | cat -e
 z$*/
+
+#include <unistd.h>
+
+int main(void) {
+    write(1, "z\n", 2);
+    return (0);
+}

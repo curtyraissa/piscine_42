@@ -12,3 +12,10 @@ Hello World!
 $>./hello | cat -e
 Hello World!$
 $>*/
+
+#include <unistd.h>
+
+int main(void) {
+    write(1, "Hello World!\n", 13);
+    return (0);
+}
