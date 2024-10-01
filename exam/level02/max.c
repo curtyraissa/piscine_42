@@ -13,3 +13,21 @@ the array.
 The function returns the largest number found in the array.
 
 If the array is empty, the function returns 0.*/
+
+int max(int* tab, unsigned int len) {
+    int max;
+
+    if (len == 0) {
+        return (0);
+    }
+
+    max = tab[0];
+
+    while (len > 0) {
+        len--;
+        if (tab[len] > max) {
+            max = tab[len];
+        }
+    }
+    return (max);
+}

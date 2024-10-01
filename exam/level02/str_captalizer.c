@@ -25,3 +25,28 @@ Deuxieme Test Un Peu Moins  Facile$
    Attention C'est Pas Dur Quand Meme$
 Aller Un Dernier 0123456789pour La Route    E $
 $>*/
+
+char	*ft_strcapitalize(char *str)
+{
+	int	i;
+	int	c;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ('a' <= str[i - 1] && str[i - 1] <= 'z')
+			c = 1;
+		else if ('0' <= str[i - 1] && str[i - 1] <= '9')
+			c = 1;
+		else if ('A' <= str[i - 1] && str[i - 1] <= 'Z')
+			c = 1;
+		else
+			c = 0;
+		if ('A' <= str[i] && str[i] <= 'Z' && c == 1)
+			str[i] = str[i] + 32;
+		if ('a' <= str[i] && str[i] <= 'z' && c == 0)
+			str[i] = str[i] - 32;
+		i++;
+	}
+	return (str);
+}
